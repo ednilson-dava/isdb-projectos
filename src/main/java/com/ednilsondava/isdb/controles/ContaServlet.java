@@ -35,7 +35,7 @@ public class ContaServlet extends HttpServlet {
         Pattern pattern = Pattern.compile("(20[1-2][0-9])(\\d{3})");
         Matcher matcher = pattern.matcher(codigo);
 
-        if(matcher.find()) {
+        if(matcher.find() && codigo.length()<8) {
             String ano = matcher.group(1);
             String ref = matcher.group(2);
 
