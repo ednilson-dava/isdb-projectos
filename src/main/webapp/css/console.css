@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: relative;
+    height: 100px;
+    background: #bb9f68;
+}
+
+.dataset-upload {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 15px;
+}
+
+.dataset-upload form {
+    margin-bottom: 5px;
+}
+
+.dataset-upload a {
+    float: right;
+    background: red;
+    padding: 5px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #3e3e3e;
+}
+
+.dataset-upload a:hover {
+    background: #c80000;
+    color: white;
+}
+
+#navigation-menu {
+    position: absolute;
+    list-style: none;
+    bottom: 4px;
+}
+
+#navigation-menu li {
+    display: inline;
+}
+
+#navigation-menu li a {
+    text-decoration: none;
+    padding: 5px 20px;
+    background: #90794d;
+    color: white;
+    border-radius: 0 25px 0 0;
+}
+
+#navigation-menu li a:hover {
+    background: #ffd484;
+    color: #3e3e3e;
+}
+
+#navigation-menu li .active {
+    border: 1px solid #f00;
+}

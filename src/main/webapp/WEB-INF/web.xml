@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <!--Direitos autorais-->
+    <context-param>
+        <param-name>copyright</param-name>
+        <param-value>Desenvolvido por Ednilson Dava, 2020</param-value>
+    </context-param>
+    <context-param>
+        <param-name>website</param-name>
+        <param-value>www.ednilsondava.com</param-value>
+    </context-param>
+
+    <!--CDI & DataSource-->
+    <resource-env-ref>
+        <resource-env-ref-name>BeanManager</resource-env-ref-name>
+        <resource-env-ref-type>javax.enterprise.inject.spi.BeanManager</resource-env-ref-type>
+    </resource-env-ref>
+    <resource-env-ref>
+        <resource-env-ref-name>jdbc/avaldocente</resource-env-ref-name>
+        <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
+    </resource-env-ref>
+
+    <!--Nivel de acesso Estudante-->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Avaliacao Desempenho Docente</web-resource-name>
+            <url-pattern>/estudante.jsp</url-pattern>
+            <url-pattern>/ficha.jsp</url-pattern>
+            <url-pattern>/fichas</url-pattern>
+            <url-pattern>/ModSem</url-pattern>
+            <url-pattern>/Estudante</url-pattern>
+            <url-pattern>/logout</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>ESTUDANTE</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <!--Nivel de acesso Administrador-->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Administrator Console</web-resource-name>
+            <url-pattern>/sistema.jsp</url-pattern>
+            <url-pattern>/configuracao.jsp</url-pattern>
+            <url-pattern>/docentes.jsp</url-pattern>
+            <url-pattern>/perguntas.jsp</url-pattern>
+            <url-pattern>/docentes</url-pattern>
+            <url-pattern>/cursos</url-pattern>
+            <url-pattern>/departamentos</url-pattern>
+            <url-pattern>/files</url-pattern>
+            <url-pattern>/modulos</url-pattern>
+            <url-pattern>/configuracao</url-pattern>
+            <url-pattern>/perguntas</url-pattern>
+            <url-pattern>/logout</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>ADMINISTRATOR</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <!--Nivel de acesso Visitante-->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Pagina Inicial</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <!--Autenticacao-->
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/index.jsp</form-login-page>
+            <form-error-page>/error.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
+
+    <!--Tratamento de erros-->
+    <error-page>
+        <error-code>403</error-code>
+        <location>/WEB-INF/pages/403.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>405</error-code>
+        <location>/ErroPanel</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/pages/404.jsp</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/ErroPanel</location>
+    </error-page>
+</web-app>

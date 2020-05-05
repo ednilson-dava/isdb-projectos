@@ -1,0 +1,83 @@
+.dombosco-brand {
+    width: 100%;
+}
+
+#ficha-header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+.ficha-informacao a {
+    text-decoration: none;
+    color: white;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+.it-pergunta {
+    width: 900px;
+    border-radius: 5px;
+    margin: 10px auto;
+    background: #8d7147;
+}
+
+.it-pergunta .it-desc {
+    margin: 0 20px;
+    color: white;
+    font-weight: bold;
+    padding-top: 3px;
+}
+
+.it-pergunta .it-modl {
+    background: #b0945f;
+    padding: 10px 0;
+    align-items: center;
+    display: flex;
+}
+
+.it-pergunta .it-modl div {
+    display: inline-block;
+    margin: 0 20px;
+
+}
+
+.it-pergunta .it-modl .it-perg-mod {
+    width: 200px;
+}
+
+.it-pergunta .it-modl .it-perg-res {
+
+}
+
+.it-pergunta .it-modl .it-perg-res input {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 5px;
+}
+
+.it-pergunta .it-modl .it-perg-mod p {
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*white-space: nowrap;*/
+    font-size: 10pt;
+}
+
+.it-sb {
+    text-align: center;
+}
+
+.it-sb input[type="submit"] {
+    border: none;
+    font-size: 13pt;
+    padding: 5px 25px;
+    border-radius: 5px;
+    background: lightgreen;
+    color: black;
+}
+
+.it-sb input[type="submit"]:hover {
+    background: #6eba6e;
+}

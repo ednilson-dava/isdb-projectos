@@ -1,0 +1,147 @@
+* {
+    font-family: Calibri, sans-serif;
+}
+
+body {
+    background: #ffffd8;
+    margin: 0;
+    padding: 0;
+}
+
+#dombosco {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 60px;
+}
+
+#dombosco form input[type="submit"] {
+    border: none;
+    font-size: 13pt;
+    padding: 5px 25px;
+    border-radius: 5px;
+    background: lightgreen;
+    color: black;
+}
+
+#dombosco form input[type="submit"]:hover {
+    background: #6eba6e;
+}
+
+#dombosco form input[type="text"] {
+    border: none;
+    width: 230px;
+    font-size: large;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background: palegoldenrod;
+    margin: 10px;
+    text-align: center;
+}
+
+#dombosco .dombosco-header p {
+    font-weight: 800;
+    font-size: x-large;
+    font-variant: small-caps;
+    color: #bb9f68;
+}
+
+#dombosco .dombosco-header img {
+    width: 128px;
+    height: 128px;
+}
+
+#dombosco .dombosco-content {
+    height: 150px;
+    overflow: hidden;
+}
+
+#dombosco .dombosco-content #estudante {
+    padding: 50px 0;
+}
+
+#dombosco .dombosco-content #estudante form div {
+    display: inline-block;
+    margin: 8px;
+}
+
+#dombosco .dombosco-content #estudante form select {
+    border: none;
+    padding: 5px;
+}
+
+#dombosco .dombosco-content #estudante form input[type="submit"]:hover {
+    background: #4e64a9;
+}
+
+#dombosco .dombosco-content #estudante form input[type="submit"] {
+    background: cornflowerblue;
+}
+
+#dombosco .dombosco-content .aviso {
+    font-size: smaller;
+    color: red;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+.dombosco-brand img {
+    width: 48px;
+    height: 48px;
+    padding: 5px 0;
+}
+
+#ficha-header {
+    text-align: center;
+    background: tan;
+}
+
+.ficha-informacao {
+    position: absolute;
+    top: 15px;
+    right: 40px;
+    text-align: right;
+}
+
+.ficha-informacao p {
+    width: 230px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    font-family: Calibri, sans-serif;
+    font-size: small;
+    font-weight: bold;
+}
+
+.alert-band {
+    font-size: 18pt;
+    font-weight: bold;
+}
+.error-panel {
+    text-align: left;
+}
+
+.error-panel p {
+    font-weight: bold;
+}
+
+.error-panel small {
+    color: #a56d00;
+}
+.error-panel .error-content {
+    margin: 10px 0;
+}
+footer {
+    text-align: center;
+}
+
+footer small a {
+    font-weight: bolder;
+    color: #bb9f68;
+    text-decoration: none;
+}
+
+footer small a:hover {
+    text-decoration: underline;
+}

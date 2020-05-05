@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Context>
+    <Resource name="BeanManager"
+              auth="Container"
+              type="javax.enterprise.inject.spi.BeanManager"
+              factory="org.jboss.weld.resources.ManagerObjectFactory"/>
+
+    <Resource name="jdbc/avaldocente" auth="Container" type="javax.sql.DataSource"
+              driverClassName="com.mysql.jdbc.Driver" username="root" password="12345"
+              url="jdbc:mysql://localhost:3306/aval_docente?serverTimezone=UTC"/>
+
+    <Realm className="org.apache.catalina.realm.JDBCRealm"
+           driverName="com.mysql.jdbc.Driver"
+           connectionName="root" connectionPassword="12345"
+           connectionURL="jdbc:mysql://localhost:3306/aval_docente?serverTimezone=UTC"
+           userTable="usuario" userNameCol="nomeUsuario" userCredCol="senhaUsuario"
+           userRoleTable="usuarios_acesso" roleNameCol="tipo"/>
+</Context>
