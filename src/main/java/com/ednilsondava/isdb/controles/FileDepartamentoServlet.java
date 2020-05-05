@@ -125,7 +125,9 @@ public class FileDepartamentoServlet extends HttpServlet {
                     docente.setApelido(apelido);
                     docente.setRegime(data[1]);
                     //TODO Salvar docente na base de dados
-                    docentes.salvar(docente);
+                    Docente managed = docentes.encontrarByNomeAndApelido(nome, apelido);
+                    if(managed==null)
+                        docentes.salvar(docente);
                 }
             }
         }
