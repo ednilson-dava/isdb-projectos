@@ -20,17 +20,19 @@
             <img src="${pageContext.request.contextPath}/img/logo-1.png"/>
             <p>Diagnostico do erro</p>
         </div>
-        <div class="dombosco-content">
+        <div class="dombosco-content" style="overflow: scroll; margin-bottom: 10px;">
             <div class="error-panel">
                 <p><small></small>: Ocorreu um erro interno no sistema</p>
                 <ul>
                     <li>Informar o Departamento de TICs</li>
                 </ul>
-                <small>ERR_SERVER</small>
-                <div class="error-content">
-                    <a href="${pageContext.request.contextPath}/">Ir a Pagina Inicial</a>
+                <div class="stack">
+                    <small>${requestScope.stack}</small>
                 </div>
             </div>
+        </div>
+        <div class="error-content">
+            <a href="${pageContext.request.contextPath}/">Ir a Pagina Inicial</a>
         </div>
     </section>
     <footer>
