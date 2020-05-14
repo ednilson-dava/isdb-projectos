@@ -1,0 +1,231 @@
+@media (max-device-width: 465px) {
+    /*Pagina inicial*/
+    #dombosco {
+        width: 90%;
+        padding: 0;
+    }
+
+    #dombosco .dombosco-header {
+        margin-top: 100px;
+    }
+
+    #dombosco .dombosco-header img {
+        width: 300px;
+        height: 300px;
+    }
+
+    #dombosco .dombosco-header p {
+        font-size: 4em;
+    }
+
+    #dombosco .dombosco-content {
+        height: auto;
+        overflow: auto;
+    }
+
+    #dombosco .dombosco-content #usuario .u-lbl-codigo {
+        font-size: 3em;
+        text-align: left;
+        margin: 0 15px;
+    }
+
+    #dombosco .dombosco-content #usuario .u-txt-codigo input {
+        width: 100%;
+        height: 2.5em;
+        margin: 10px;
+        font-size: 3.5em;
+    }
+
+    #dombosco .dombosco-content #usuario .u-btn-entrar input {
+        width: 100%;
+        font-size: 3.5em;
+        padding: 30px 0;
+        margin: 10px;
+    }
+
+    #dombosco .dombosco-content #usuario .aviso {
+        font-size: 2.6em;
+        font-variant: none;
+        margin: 10px;
+    }
+
+    /* Fim Pagina inicial*/
+
+    /* Pagina da Ficha */
+    #ficha-header {
+        height: 160px;
+        /*box-shadow: 1px 1px grey;*/
+        background: none;
+        padding: 18px 0;
+    }
+
+    .dombosco-brand {
+        text-align: left;
+        margin: 0 40px;
+    }
+
+    .dombosco-brand img {
+        width: 120px;
+        height: 120px;
+        padding: 0;
+    }
+
+    .ficha-informacao p {
+        font-size: 2em;
+        width: 300px;
+    }
+
+    .f-btn-navbar {
+        display: block;
+        margin: 0 50px;
+        background: none;
+        border: none;
+    }
+
+    .f-btn-navbar .f-ic-nav {
+        display: block;
+    }
+
+    .f-btn-navbar .f-ic-nav span {
+        display: block;
+        background: #695234;
+        padding: 5px 40px;
+        margin: 15px 0;
+        border-radius: 5px;
+    }
+
+    .f-btn-navbar .f-ic-nav .f-ic-2 {
+        width: 5px;
+        display: block;
+        padding: 5px 22px;
+    }
+
+    .ficha-informacao, #f-nav-ficha {
+        display: none;
+    }
+
+    .it-pergunta {
+        border-radius: 40px;
+        padding: 40px 0;
+        background: #f7f1c5;
+    }
+
+    .it-pergunta .it-desc {
+        padding: 0;
+        font-size: 1.5em;
+        color: #695234;
+    }
+
+    .it-pergunta .it-desc p {
+        margin: 10px 0;
+    }
+
+    .it-pergunta .it-modl {
+        padding: 10px 0;
+        align-items: center;
+        display: block;
+        background: none;
+    }
+
+    .it-pergunta .it-modl .it-perg-mod {
+        width: auto;
+        display: block;
+        padding: 5px 40px;
+    }
+
+    .it-pergunta .it-modl .it-perg-mod p {
+        width: auto;
+        font-size: 1.1em;
+    }
+
+    .it-pergunta .it-modl .it-perg-res-mob .it-comentario {
+        display: block;
+    }
+
+    .it-pergunta .it-modl .it-perg-res-mob .it-comentario textarea {
+        width: 100%;
+        height: 128px;
+        border: none;
+        font-size: 1.2em;
+        border-radius: 5px;
+    }
+
+    .it-pergunta .it-modl .it-perg-res-mob {
+        margin: 0 auto;
+        display: block;
+        width: 700px;
+    }
+
+    .it-pergunta .it-modl .it-perg-res-mob label {
+        font-size: 2.5em;
+        margin: 0 10px;
+        display: inline;
+    }
+
+    .it-pergunta .it-modl .it-perg-res-mob input {
+        width: 45px;
+        height: 45px;
+    }
+
+    .it-perg-res {
+        display: none;
+    }
+
+    .it-perg-res-mob {
+        display: block;
+    }
+
+    .it-pergunta .it-modl div {
+        display: none;
+        margin: 0;
+    }
+
+    .it-sb input[type="submit"] {
+        font-size: 3em;
+        padding: 25px 48px;
+        border-radius: 10px;
+    }
+    /* Fim Pagina de Ficha*/
+
+    /*Pagina de Estudante*/
+    #dombosco .dombosco-content #estudante form div {
+        display: block;
+    }
+
+    #dombosco .dombosco-content #estudante {
+        padding: 0;
+    }
+
+    #dombosco .dombosco-content #estudante .e-ui-curso, #estudante .e-ui-ano {
+        text-align: left;
+        font-size: 3.5em;
+        margin: 0 15px;
+    }
+
+    .e-ui-curso label, .e-ui-ano label {
+        display: block;
+        margin: 0 15px;
+    }
+
+    .e-ui-curso select, .e-ui-ano select {
+        width: 95%;
+        margin: 15px;
+        font-size: 1.3em;
+        padding: 25px;
+    }
+
+    #dombosco .dombosco-content .e-btn-avancar input {
+        width: 95%;
+        font-size: 3em;
+        padding: 25px 0;
+        display: block;
+        margin: 0 15px;
+    }
+    /*Fim de Pagina de Estudante*/
+
+    footer {
+        width: 100%;
+        font-size: 0.9em;
+        margin: 100px 0;
+    }
+}

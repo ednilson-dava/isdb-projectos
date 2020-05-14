@@ -106,4 +106,28 @@ public class Cursos implements Serializable {
             return 0L;
         }
     }
+
+    public void actualizar(Curso curso) {
+        EntityTransaction transaction = manager.getTransaction();
+        try {
+            transaction.begin();
+            manager.merge(curso);
+            transaction.commit();
+        } catch (Exception e) {
+            transaction.rollback();
+        }
+    }
+
+    public List<Curso> encontrarByDepartamento(Departamento departamento) {
+        try {
+            CriteriaBuilder builder = manager.getCriteriaBuilder();
+            CriteriaQuery<Curso> criteria = builder.createQuery(Curso.class);
+            Root<Curso> root = criteria.from(Curso.class);
+            criteria.where(builder.equal(root.get(Curso_.departamento), departamento));
+            TypedQuery<Curso> query = manager.createQuery(criteria);
+            return query.getResultList();
+        } catch (Exception e) {
+            return Collections.emptyList();
+        }
+    }
 }

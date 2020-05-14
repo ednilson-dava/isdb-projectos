@@ -29,6 +29,7 @@ public class EstudanteGuiServlet extends HttpServlet {
         String id = req.getParameter("id-estudante");
         String cod = req.getParameter("cod-estudante");
 
+        //pequisar
         if(cod != null) {
             Estudante estudante = estudantes.encontrarByCodigo(cod);
             req.setAttribute("cEstudantes", estudantes.total());

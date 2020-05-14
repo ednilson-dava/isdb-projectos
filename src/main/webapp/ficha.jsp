@@ -7,6 +7,7 @@
     <link rel="icon" href="${pageContext.request.contextPath}/img/logo-1.png" sizes="32x32">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/estilo.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/ficha.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mobile.css"/>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
     <script>
         function modulochange(id) {
@@ -38,7 +39,23 @@
                 </div>
             </div>
         </div>
-
+        <button class="f-btn-navbar"><span class="f-ic-nav">
+            <span> </span>
+            <span class="f-ic-2"> </span>
+        </span></button>
+        <div id="f-nav-ficha">
+            <div class="f-nav-info">
+                <p>${fichaBean.curso.nome}</p>
+                <p>${fichaBean.estudante.codigo}</p>
+            </div>
+            <ul class="f-nav-menu">
+                <li>
+                    <a href="${pageContext.request.contextPath}/logout">
+                        Terminar sessão
+                    </a>
+                </li>
+            </ul>
+        </div>
     </header>
     <form action="${pageContext.request.contextPath}/fichas" method="post">
         <aside>
@@ -90,6 +107,38 @@
                                         <label>
                                             <input name="classificao-${pergunta.id}-${modl.id}" type="radio" value="5">
                                             Excelente
+                                        </label>
+                                    </c:when>
+                                    <c:when test="${pergunta.tipo == 'TEXTO'}">
+                                        <div class="it-comentario">
+                                            <textarea name="comentario-${pergunta.id}-${modl.id}" cols="80"
+                                                      rows="3"></textarea>
+                                        </div>
+                                    </c:when>
+                                </c:choose>
+                            </div>
+                            <div class="it-perg-res-mob">
+                                <c:choose>
+                                    <c:when test="${pergunta.tipo == 'ESCOLHA'}">
+                                        <label>
+                                            <input name="classificao-${pergunta.id}-${modl.id}" type="radio" value="1">
+                                            1
+                                        </label>
+                                        <label>
+                                            <input name="classificao-${pergunta.id}-${modl.id}" type="radio" value="2">
+                                            2
+                                        </label>
+                                        <label>
+                                            <input name="classificao-${pergunta.id}-${modl.id}" type="radio" value="3">
+                                            3
+                                        </label>
+                                        <label>
+                                            <input name="classificao-${pergunta.id}-${modl.id}" type="radio" value="4">
+                                            4
+                                        </label>
+                                        <label>
+                                            <input name="classificao-${pergunta.id}-${modl.id}" type="radio" value="5">
+                                            5
                                         </label>
                                     </c:when>
                                     <c:when test="${pergunta.tipo == 'TEXTO'}">

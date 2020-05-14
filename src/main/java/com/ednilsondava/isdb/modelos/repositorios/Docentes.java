@@ -79,4 +79,15 @@ public class Docentes {
             return 0L;
         }
     }
+
+    public void actualizar(Docente docente) {
+        EntityTransaction transaction = manager.getTransaction();
+        try {
+            transaction.begin();
+            manager.merge(docente);
+            transaction.commit();
+        } catch (Exception e) {
+            transaction.rollback();
+        }
+    }
 }

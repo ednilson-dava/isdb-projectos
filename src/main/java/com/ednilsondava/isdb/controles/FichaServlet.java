@@ -62,6 +62,7 @@ public class FichaServlet extends HttpServlet {
 	                	Pergunta pergunta = perguntas.encontrar(idPergunta);
 	                    Resposta resposta = new Resposta();
 	                    resposta.setPergunta(pergunta);
+
 	                    String resp = parameterMap.get(param)[0];
 
 	                    if (pergunta.getTipo() == TipoPergunta.ESCOLHA) {
@@ -70,6 +71,9 @@ public class FichaServlet extends HttpServlet {
 	                        resposta.setClassificacao(classificacao);
 	                        media[0] += classificacao.getTipo().ordinal();
 	                    } else if (pergunta.getTipo() == TipoPergunta.TEXTO) {
+	                    	//FIX
+	                    	resp += parameterMap.get(param)[1];
+
 	                        Comentario comentario = new Comentario();
 	                        comentario.setMensagem(resp);
 	                        resposta.setComentario(comentario);

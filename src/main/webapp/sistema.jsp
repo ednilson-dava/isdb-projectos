@@ -26,6 +26,7 @@
                 <li><a onclick="optionchange('${pageContext.request.contextPath}/departamentos')" href="#">Departamentos</a></li>
                 <li><a onclick="optionchange('${pageContext.request.contextPath}/perguntas')" href="#">Perguntas</a></li>
                 <li><a onclick="optionchange('${pageContext.request.contextPath}/estudantesgui')" href="#">Estudantes</a></li>
+                <li><a onclick="optionchange('${pageContext.request.contextPath}/coordenadores')" href="#">Coordenador</a></li>
                 <li><a onclick="optionchange('${pageContext.request.contextPath}/configuracao')" href="#">Configuração</a></li>
             </ul>
             <div class="dataset-upload">
@@ -94,6 +95,45 @@
         }).done(function (resp) {
             $("#sistema-console").html(resp);
         })
+    }
+
+    function selectDepartamentoManger(dep) {
+        $.ajax("${pageContext.request.contextPath}/depmanagersearch", {
+            type: 'post',
+            data: {
+                "cod-departamento": dep.value
+            }
+        }).done(function (resp) {
+            $(".jDepartamento-row").html(resp);
+        })
+    }
+
+    function jCoordenardor(codCurso, codModulo, codDocente, curso, modulo, ano, semestre, docente, regime) {
+
+    }
+
+    function guardarDepMan() {
+        let table = $(".jDepartamento-row")[0].rows;
+        let dados = [];
+        for(let i = 0; i <table.length; i++) {
+            let col = table[i].cells;
+            let dado = {};
+            dado.codCurso = col[0].children[0].value;
+            dado.codModulo = col[0].children[1].value;
+            dado.codDocente = col[0].children[2].value;
+            dado.curso = col[1].children[0].value;
+            dado.modulo = col[2].children[0].value;
+            dado.ano = col[3].children[0].value;
+            dado.semestre = col[4].children[0].value;
+            dado.docente = col[5].children[0].value;
+            dado.regime = col[6].children[0].value;
+            dados[i] = dado;
+        }
+
+        $.each(dados, function (index) {
+            $.post("${pageContext.request.contextPath}/coordenadores", dados[index]);
+        });
+
     }
 </script>
 </body>

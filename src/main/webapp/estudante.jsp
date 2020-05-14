@@ -10,8 +10,9 @@
 <html>
 <head>
     <meta content="text/html" http-equiv="Content-Type" charset="UTF-8"/>
-    <title>ISDB - Avaliacao de Docentes</title>
+    <title>ISDB - SADD</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/estilo.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mobile.css"/>
     <link rel="icon" href="${pageContext.request.contextPath}/img/logo-1.png" sizes="32x32">
 </head>
 <body>
@@ -19,13 +20,13 @@
     <section id="dombosco">
         <div class="dombosco-header">
             <img src="${pageContext.request.contextPath}/img/logo-1.png"/>
-            <p>Avaliação desempenho do docente</p>
+            <p>Sistema de Avaliação de desempenho do docente</p>
         </div>
         <div class="dombosco-content">
             <div id="estudante">
                 <form action="${pageContext.request.contextPath}/Estudante" method="post">
                     <input type="hidden" name="codigo" value="${param.codigo}">
-                    <div>
+                    <div class="e-ui-curso">
                         <label>Curso </label>
                         <select name="curso">
                             <c:forEach var="curso" items="${inicialBean.cursos}">
@@ -33,7 +34,7 @@
                             </c:forEach>
                         </select>
                     </div>
-                    <div>
+                    <div class="e-ui-ano">
                         <label>Ano </label>
                         <select name="ano">
                             <option value="1">1</option>
@@ -42,7 +43,7 @@
                             <option value="4">4</option>
                         </select>
                     </div>
-                    <div>
+                    <div class="e-btn-avancar">
                         <input type="submit" value="Avançar"/>
                     </div>
                 </form>

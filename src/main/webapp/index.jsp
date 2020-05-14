@@ -10,8 +10,9 @@
 <html>
 <head>
     <meta content="text/html" http-equiv="Content-Type" charset="UTF-8"/>
-    <title>ISDB - Avaliacao de Docentes</title>
+    <title>ISDB - SADD</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/estilo.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mobile.css"/>
     <link rel="icon" href="${pageContext.request.contextPath}/img/logo-1.png" sizes="32x32">
 </head>
 <body>
@@ -19,22 +20,22 @@
     <section id="dombosco">
         <div class="dombosco-header">
             <img src="${pageContext.request.contextPath}/img/logo-1.png"/>
-            <p>Avaliação desempenho do docente</p>
+            <p>Sistema de Avaliação de desempenho do docente</p>
         </div>
         <div class="dombosco-content">
             <div id="usuario">
                 <form action="${pageContext.request.contextPath}/conta" method="post">
-                    <div>
+                    <div class="u-lbl-codigo">
                         <label>Codigo do estudante</label>
                     </div>
-                    <div>
+                    <div class="u-txt-codigo">
                         <input type="text" name="codigo" placeholder="XXXXXXX"/>
                     </div>
-                    <div>
+                    <div class="u-btn-entrar">
                         <input type="submit" value="Entrar"/>
                     </div>
                 </form>
-                <div>
+                <div class="u-wa-estudante">
                     <c:choose>
                         <c:when test="${param.conta}">
                             <p class="aviso">ACESSO BLOQUEADO</p>
@@ -50,33 +51,7 @@
                                 os modulos</p>
                         </c:otherwise>
                     </c:choose>
-
                 </div>
-            </div>
-            <div id="estudante">
-                <form action="${pageContext.request.contextPath}/Estudante" method="post">
-                    <input type="hidden" name="codigo" value="${param.codigo}">
-                    <div>
-                        <label>Curso </label>
-                        <select name="curso">
-                            <c:forEach var="curso" items="${inicialBean.cursos}">
-                                <option value="${curso.id}">${curso.nome}</option>
-                            </c:forEach>
-                        </select>
-                    </div>
-                    <div>
-                        <label>Ano </label>
-                        <select name="ano">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                        </select>
-                    </div>
-                    <div>
-                        <input type="submit" value="Guardar"/>
-                    </div>
-                </form>
             </div>
         </div>
     </section>

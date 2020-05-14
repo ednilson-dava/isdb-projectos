@@ -8,6 +8,7 @@
     align-items: center;
     margin: 0 auto;
 }
+
 .ficha-informacao a {
     text-decoration: none;
     color: white;
@@ -37,7 +38,7 @@
 }
 
 .it-pergunta .it-modl div {
-    display: inline-block;
+    //display: inline-block;
     margin: 0 20px;
 
 }
@@ -80,4 +81,16 @@
 
 .it-sb input[type="submit"]:hover {
     background: #6eba6e;
+}
+
+.ficha-informacao {
+    display: block;
+}
+
+.f-btn-navbar, #f-nav-ficha {
+    display: none;
+}
+
+.it-perg-res-mob {
+    display: none;
 }
