@@ -7,6 +7,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -16,12 +17,14 @@ import java.util.List;
 public class FichaBean implements Serializable{
     private Long idCurso;
     private String codigoEstudante;
-    private Integer ano;
 
     private List<Integer> anoLectivoAvaliacao;
     private List<Modulo> modulos;
     private List<Pergunta> perguntas;
-    private List<Avaliacao> avaliacoes;
+    private List<Modulo> modulosConcluidos;
+
+    private List<Modulo> modulosPorAvaliar;
+    private Modulo moduloGuardado;
 
     private Curso curso;
     private Estudante estudante;
@@ -40,7 +43,8 @@ public class FichaBean implements Serializable{
     private Modulos modulosRepositorio;
     @Inject
     private ConfiguracoesGeral configuracoesGeralRepositorio;
-
+    @Inject
+    private Pendentes pendentesRepositorio;
 
     public Long getIdCurso() {
         return idCurso;
@@ -51,9 +55,18 @@ public class FichaBean implements Serializable{
     }
 
     public List<Modulo> getModulos() {
-        Curso curso = cursosRepositorio.encontrar(this.idCurso);
-        ConfiguracaoGeral geral = configuracoesGeralRepositorio.encontrarUltima();
-        this.modulos = modulosRepositorio.todosByCursoAndAnoAndSemestre(curso, ano, geral.getSemestre());
+        this.estudante = estudantesRepositorio.encontrarByCodigo(codigoEstudante);
+        List<Pendente> pendentes = pendentesRepositorio.encontrarPorEstudante(estudante);
+        List<Modulo> modulos = estudante.getModulos();
+
+        modulosConcluidos = new ArrayList<>();
+
+        for (Pendente pendente : pendentes) {
+            List<Modulo> modulosAvaliadosPendente = pendente.getModulos();
+            modulos.removeAll(modulosAvaliadosPendente);
+            modulosConcluidos.addAll(modulosAvaliadosPendente);
+        }
+        this.modulos = modulos;
         return this.modulos;
     }
 
@@ -75,18 +88,9 @@ public class FichaBean implements Serializable{
         return estudante;
     }
 
-    public List<Avaliacao> getAvaliacoes() {
-        this.avaliacoes = avaliacoesRepositorio.encontrarByCursoAndEstudante(this.curso, this.estudante);
-        return avaliacoes;
-    }
-
     public List<Pergunta> getPerguntas() {
         this.perguntas = perguntasRepositorio.todas();
         return perguntas;
-    }
-
-    public void setAnoCurricular(Integer semestre) {
-        this.ano = semestre;
     }
 
     public ConfiguracaoGeral getGeral() {
@@ -109,5 +113,29 @@ public class FichaBean implements Serializable{
     public List<Integer> getAnoLectivoAvaliacao() {
         this.anoLectivoAvaliacao = avaliacoesRepositorio.encontrarAnoLectivos();
         return anoLectivoAvaliacao;
+    }
+
+    public void setModulosPorAvaliar(List<Modulo> modulos) {
+        this.modulosPorAvaliar = modulos;
+    }
+
+    public List<Modulo> getModulosPorAvaliar() {
+        return modulosPorAvaliar;
+    }
+
+    public Modulo getModuloGuardado() {
+        return moduloGuardado;
+    }
+
+    public void setModuloGuardado(Modulo moduloGuardado) {
+        this.moduloGuardado = moduloGuardado;
+    }
+
+    public List<Modulo> getModulosConcluidos() {
+        return modulosConcluidos;
+    }
+
+    public void setModulosConcluidos(List<Modulo> modulosConcluidos) {
+        this.modulosConcluidos = modulosConcluidos;
     }
 }

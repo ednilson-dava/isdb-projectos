@@ -129,8 +129,23 @@ public class Modulos implements Serializable {
             Root<Modulo> root = criteria.from(Modulo.class);
             Join<Modulo, Avaliacao> avaliacaoJoin = root.join(Modulo_.avaliacoes);
             avaliacaoJoin.on(builder.equal(avaliacaoJoin.get(Avaliacao_.completado), true));
-            criteria.select(builder.construct(Modulo.class,  root.get(Modulo_.id), root.get(Modulo_.nome))).distinct(true);
+            criteria.select(builder.construct(Modulo.class, root.get(Modulo_.id), root.get(Modulo_.nome))).distinct(true);
             criteria.where(builder.equal(root.get(Modulo_.curso), curso), builder.equal(root.get(Modulo_.anoCurricular), anoCurricular), builder.equal(root.get(Modulo_.semestre), semestre));
+            TypedQuery<Modulo> query = manager.createQuery(criteria);
+            return query.getResultList();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public List<Modulo> encontrarPendentesPorEstudantes(Estudante estudante) {
+        try {
+            CriteriaBuilder builder = manager.getCriteriaBuilder();
+            CriteriaQuery<Modulo> criteria = builder.createQuery(Modulo.class);
+            Root<Modulo> root = criteria.from(Modulo.class);
+//            Join<Modulo, Pendente> pendenteJoin = root.join(Modulo_.pendente);
+//            pendenteJoin.on(builder.equal(pendenteJoin.get(Pendente_.estudante), estudante));
+            criteria.select(root);
             TypedQuery<Modulo> query = manager.createQuery(criteria);
             return query.getResultList();
         } catch (Exception e) {

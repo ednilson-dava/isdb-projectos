@@ -3,7 +3,10 @@ package com.ednilsondava.isdb.controles;
 import com.ednilsondava.isdb.modelos.entidades.Acesso;
 import com.ednilsondava.isdb.modelos.entidades.Usuario;
 import com.ednilsondava.isdb.modelos.repositorios.Acessos;
+import com.ednilsondava.isdb.modelos.repositorios.Estudantes;
 import com.ednilsondava.isdb.modelos.repositorios.Usuarios;
+import com.ednilsondava.isdb.negocios.FichaBean;
+import com.ednilsondava.isdb.negocios.InicialBean;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -19,14 +22,21 @@ import java.util.regex.Pattern;
 @WebServlet("/conta")
 public class ContaServlet extends HttpServlet {
     @Inject
+    private InicialBean inicialBean;
+    @Inject
     private Usuarios usuarios;
     @Inject
     private Acessos acessos;
+    @Inject
+    private FichaBean fichaBean;
+    @Inject
+    private Estudantes estudantes;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String codigo = request.getParameter("codigo");
 
         if(codigo.startsWith("@")) {
+            inicialBean.configurarAdministrador();
             request.login(codigo, "@Admin1234");
             response.sendRedirect(getServletContext().getContextPath() + "/sistema.jsp");
             return;

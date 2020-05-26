@@ -104,10 +104,42 @@
         display: none;
     }
 
+    aside {
+        float: none;
+        width: 94%;
+        margin: 25px 40px;
+    }
+    aside label, #ls-modulos {
+        font-size: 2.8em;
+
+    }
+
+    #ls-modulos {
+        width: 900px;
+        padding: 15px;
+    }
+
+    aside button {
+        font-size: 3em;
+        width: 98%;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 30px;
+        border: none;
+        background: #d8d3b2;
+    }
+    #frm-modulo-avaliacao {
+        float: none;
+        margin: 15px auto;
+    }
+
     .it-pergunta {
         border-radius: 40px;
         padding: 40px 0;
         background: #f7f1c5;
+        align-items: center;
+        display: block;
+
     }
 
     .it-pergunta .it-desc {
@@ -120,29 +152,22 @@
         margin: 10px 0;
     }
 
-    .it-pergunta .it-modl {
-        padding: 10px 0;
-        align-items: center;
-        display: block;
-        background: none;
-    }
-
-    .it-pergunta .it-modl .it-perg-mod {
+    .it-pergunta .it-perg-mod {
         width: auto;
         display: block;
         padding: 5px 40px;
     }
 
-    .it-pergunta .it-modl .it-perg-mod p {
+    .it-pergunta .it-perg-mod p {
         width: auto;
         font-size: 1.1em;
     }
 
-    .it-pergunta .it-modl .it-perg-res-mob .it-comentario {
+    .it-pergunta .it-perg-res .it-comentario {
         display: block;
     }
 
-    .it-pergunta .it-modl .it-perg-res-mob .it-comentario textarea {
+    .it-pergunta .it-perg-res .it-comentario textarea {
         width: 100%;
         height: 128px;
         border: none;
@@ -150,34 +175,31 @@
         border-radius: 5px;
     }
 
-    .it-pergunta .it-modl .it-perg-res-mob {
+    .it-pergunta .it-perg-res {
         margin: 0 auto;
         display: block;
-        width: 700px;
+        width: 800px;
+        text-align: left;
+        background: none;
     }
 
-    .it-pergunta .it-modl .it-perg-res-mob label {
-        font-size: 2.5em;
-        margin: 0 10px;
-        display: inline;
-    }
-
-    .it-pergunta .it-modl .it-perg-res-mob input {
-        width: 45px;
-        height: 45px;
-    }
-
-    .it-perg-res {
-        display: none;
-    }
-
-    .it-perg-res-mob {
+    .it-pergunta .it-perg-res label {
+        font-size: 2.8em;
+        margin: 5px 10px;
         display: block;
     }
 
-    .it-pergunta .it-modl div {
-        display: none;
+    .it-pergunta .it-perg-res input {
+        width: 55px;
+        height: 55px;
+    }
+
+    .it-pergunta div {
         margin: 0;
+    }
+
+    .it-sb {
+        display: none;
     }
 
     .it-sb input[type="submit"] {

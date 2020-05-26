@@ -1,5 +1,6 @@
 package com.ednilsondava.isdb.modelos.entidades;
 
+import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
@@ -9,4 +10,6 @@ public class Estudante_ {
     public static volatile SingularAttribute<Estudante, String> codigo;
     public static volatile SingularAttribute<Estudante, Curso> curso;
     public static volatile SingularAttribute<Estudante, Usuario> usuario;
+    public static volatile ListAttribute<Estudante, Pendente> pendentes;
+    public static volatile ListAttribute<Estudante, Modulo> modulos;
 }

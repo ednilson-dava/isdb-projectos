@@ -57,60 +57,62 @@
         </tbody>
     </table>
 
-    <table>
-        <caption>Relatorios</caption>
-        <tbody>
-        <tr>
-            <td>Ano Lectivo</td>
-            <td>
-                <select onchange="selectAnoLectivo(this)">
-                    <option>Selecionar ano</option>
-                    <c:forEach var="ano" items="${fichaBean.anoLectivoAvaliacao}">
-                        <option value="${ano}">${ano}</option>
-                    </c:forEach>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Departamento</td>
-            <td>
-                <select class="jDepartamentos" onchange="selectDepartamento(this)">
+    <form action="${pageContext.request.contextPath}/relatorio" method="post">
+        <table>
+            <caption>Relatorios</caption>
+            <tbody>
+            <tr>
+                <td>Ano Lectivo</td>
+                <td>
+                    <select onchange="selectAnoLectivo(this)">
+                        <option>Selecionar ano</option>
+                        <c:forEach var="ano" items="${fichaBean.anoLectivoAvaliacao}">
+                            <option value="${ano}">${ano}</option>
+                        </c:forEach>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Departamento</td>
+                <td>
+                    <select class="jDepartamentos" onchange="selectDepartamento(this)">
 
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Curso</td>
-            <td>
-                <select class="jCursos" onchange="selectCurso(this)">
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Curso</td>
+                <td>
+                    <select class="jCursos" onchange="selectCurso(this)">
 
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Ano Curricular</td>
-            <td>
-                <select class="jAnoCurricular">
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Ano Curricular</td>
+                <td>
+                    <select class="jAnoCurricular">
 
-                </select>
-            </td>
-            <td>Semestre</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Modulo</td>
-            <td></td>
-            <td>Docente</td>
-            <td></td>
-        </tr>
-        </tbody>
-        <tfoot>
-        <tr>
-            <td>
-                <button>Submeter</button>
-            </td>
-            <td>...</td>
-        </tr>
-        </tfoot>
-    </table>
+                    </select>
+                </td>
+                <td>Semestre</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Modulo</td>
+                <td></td>
+                <td>Docente</td>
+                <td></td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td>
+                    <button>Submeter</button>
+                </td>
+                <td>...</td>
+            </tr>
+            </tfoot>
+        </table>
+    </form>
 </div>

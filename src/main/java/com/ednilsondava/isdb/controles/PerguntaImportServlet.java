@@ -26,6 +26,10 @@ public class PerguntaImportServlet extends HttpServlet {
     private Perguntas perguntas;
 
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doGet(req, resp);
+    }
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doPost(req, resp);
         String saved = null;
@@ -43,13 +47,12 @@ public class PerguntaImportServlet extends HttpServlet {
             String name = savedData.getName();
             if (name.equals("perguntas.csv")) {
                 String currentLine;
-                reader.readLine();
                 while ((currentLine = reader.readLine()) != null) {
-                    String[] data = currentLine.split(",");
+                    String[] data = currentLine.split(";");
 
                     int ordem = Integer.parseInt(data[0]);
                     String descricao = data[1];
-                    TipoPergunta tipo = TipoPergunta.valueOf(data[3].toUpperCase());
+                    TipoPergunta tipo = TipoPergunta.values()[Integer.parseInt(data[2])];
 
                     Pergunta pergunta = new Pergunta();
                     pergunta.setDescricao(descricao);

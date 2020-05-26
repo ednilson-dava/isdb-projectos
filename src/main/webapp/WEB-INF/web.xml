@@ -7,11 +7,11 @@
     <!--Direitos autorais-->
     <context-param>
         <param-name>copyright</param-name>
-        <param-value>Desenvolvido por Ednilson Dava, 2020</param-value>
+        <param-value>Instituto Superior Dom Bosco, 2020</param-value>
     </context-param>
     <context-param>
         <param-name>website</param-name>
-        <param-value>www.ednilsondava.com</param-value>
+        <param-value>portal.eadisdb.net/wp/</param-value>
     </context-param>
 
     <!--CDI & DataSource-->

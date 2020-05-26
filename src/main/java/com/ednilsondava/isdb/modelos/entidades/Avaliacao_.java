@@ -12,5 +12,4 @@ public class Avaliacao_ {
     public static volatile SingularAttribute<Avaliacao, Calendar> avaliadoEm;
     public static volatile SingularAttribute<Avaliacao, Integer> media;
     public static volatile ListAttribute<Avaliacao, Resposta> respostas;
-    public static volatile SingularAttribute<Avaliacao, Modulo> modulo;
 }

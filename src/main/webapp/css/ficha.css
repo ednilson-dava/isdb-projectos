@@ -16,11 +16,50 @@
     font-weight: bold;
 }
 
+aside {
+    width: 300px;
+    float: left;
+    position: relative;
+    margin: 20px;
+}
+
+aside select {
+    width: 290px;
+    padding: 5px;
+    border: none;
+    margin: 5px 0;
+}
+
+form {
+    float: left;
+    height: 80%;
+    overflow-y: scroll;
+    margin: 15px 0;
+    max-width: 900px;
+}
+
+.it-perg-res {
+    text-align: center;
+    background: #f1d8a8;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.it-perg-res label {
+    margin: 0 15px;
+}
+
+.it-perg-res textarea {
+    width: 100%;
+}
+footer {
+    clear: both;
+}
+
 .it-pergunta {
-    width: 900px;
     border-radius: 5px;
     margin: 10px auto;
-    background: #8d7147;
+    background: #bd9e6f;
 }
 
 .it-pergunta .it-desc {
@@ -31,14 +70,14 @@
 }
 
 .it-pergunta .it-modl {
-    background: #b0945f;
+    background: #f1d8a8;
     padding: 10px 0;
     align-items: center;
     display: flex;
 }
 
 .it-pergunta .it-modl div {
-    //display: inline-block;
+    /*display: inline-block;*/
     margin: 0 20px;
 
 }
@@ -67,7 +106,7 @@
 }
 
 .it-sb {
-    text-align: center;
+    text-align: left;
 }
 
 .it-sb input[type="submit"] {

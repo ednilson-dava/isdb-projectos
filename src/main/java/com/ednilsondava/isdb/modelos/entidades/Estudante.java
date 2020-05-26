@@ -1,6 +1,8 @@
 package com.ednilsondava.isdb.modelos.entidades;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Estudante {
@@ -12,8 +14,18 @@ public class Estudante {
     private Curso curso;
     @OneToOne(cascade = CascadeType.ALL)
     private Usuario usuario;
+    @OneToMany(mappedBy = "estudante")
+    private List<Pendente> avaliacoesPendentes;
+    @ManyToMany
+    private List<Modulo> modulos;
 
     public Estudante() {
+    }
+
+    public void adicionarModulo(Modulo modulo) {
+        if(modulos == null)
+            modulos = new ArrayList<>();
+        modulos.add(modulo);
     }
 
     public Estudante(Long id){
@@ -50,5 +62,21 @@ public class Estudante {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public List<Pendente> getAvaliacoesPendentes() {
+        return avaliacoesPendentes;
+    }
+
+    public void setAvaliacoesPendentes(List<Pendente> avaliacoesPendentes) {
+        this.avaliacoesPendentes = avaliacoesPendentes;
+    }
+
+    public List<Modulo> getModulos() {
+        return modulos;
+    }
+
+    public void setModulos(List<Modulo> modulos) {
+        this.modulos = modulos;
     }
 }

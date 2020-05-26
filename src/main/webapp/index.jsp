@@ -38,7 +38,7 @@
                 <div class="u-wa-estudante">
                     <c:choose>
                         <c:when test="${param.conta}">
-                            <p class="aviso">ACESSO BLOQUEADO</p>
+                            <p class="aviso">ACESSO BLOQUEADO, SO É PERMITIDO PREENCHER UMA VEZ</p>
                         </c:when>
                         <c:when test="${param.invalid}">
                             <p class="aviso">CODIGO INVALIDO</p>

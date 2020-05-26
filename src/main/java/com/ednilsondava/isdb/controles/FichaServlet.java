@@ -29,6 +29,7 @@ public class FichaServlet extends HttpServlet {
         Pattern pattern = Pattern.compile("(.*)-(.*)-(.*)");
         Enumeration<String> params = request.getParameterNames();
         Map<String, String[]> parameterMap = request.getParameterMap();
+
         boolean dev = Boolean.parseBoolean(request.getParameter("dev"));
 
         if(dev) {
@@ -81,7 +82,7 @@ public class FichaServlet extends HttpServlet {
 	                    pr.put(pergunta, resposta);
 	                }
 	            }
-			};
+			}
 			al.setAvaliadoEm(Calendar.getInstance());
             al.setPerguntaRespostas(pr);
             al.setCompletado(true);

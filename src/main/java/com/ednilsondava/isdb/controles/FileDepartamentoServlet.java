@@ -58,7 +58,6 @@ public class FileDepartamentoServlet extends HttpServlet {
             String name = savedData.getName();
             if (name.equals("dataset.csv")) {
                 String currentLine;
-                reader.readLine();
                 while ((currentLine = reader.readLine()) != null) {
                     String nome;
                     String apelido;

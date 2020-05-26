@@ -1,6 +1,7 @@
 package com.ednilsondava.isdb.modelos.repositorios;
 
-import com.ednilsondava.isdb.modelos.entidades.*;
+import com.ednilsondava.isdb.modelos.entidades.Avaliacao;
+import com.ednilsondava.isdb.modelos.entidades.Avaliacao_;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -8,7 +9,6 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Root;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -27,40 +27,6 @@ public class Avaliacoes implements Serializable {
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
-        }
-    }
-
-    public List<Avaliacao> encontrarByCursoAndEstudante(Curso curso, Estudante estudante) {
-        try {
-            CriteriaBuilder builder = manager.getCriteriaBuilder();
-            CriteriaQuery<Avaliacao> criteria = builder.createQuery(Avaliacao.class);
-            Root<Avaliacao> root = criteria.from(Avaliacao.class);
-
-            Join<Avaliacao, Modulo> moduloJoin = root.join(Avaliacao_.modulo);
-            moduloJoin.on(builder.equal(moduloJoin.get(Modulo_.curso), curso));
-
-            Join<Modulo, Curso> cursoJoin = moduloJoin.join(Modulo_.curso);
-            Join<Curso, Estudante> estudanteJoin = cursoJoin.join(Curso_.estudantes);
-            estudanteJoin.on(builder.equal(estudanteJoin.get(Estudante_.id), estudante.getId()));
-            criteria.select(root);
-            TypedQuery<Avaliacao> query = manager.createQuery(criteria);
-            return query.getResultList();
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    public Avaliacao encontrarByModulo(Modulo modulo) {
-        try {
-            CriteriaBuilder builder = manager.getCriteriaBuilder();
-            CriteriaQuery<Avaliacao> criteria = builder.createQuery(Avaliacao.class);
-            Root<Avaliacao> root = criteria.from(Avaliacao.class);
-            criteria.where(builder.equal(root.get(Avaliacao_.modulo), modulo));
-            criteria.select(root);
-            TypedQuery<Avaliacao> query = manager.createQuery(criteria);
-            return query.getSingleResult();
-        } catch (Exception e) {
-            return null;
         }
     }
 

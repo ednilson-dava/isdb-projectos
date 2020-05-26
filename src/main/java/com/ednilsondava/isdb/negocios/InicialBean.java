@@ -9,7 +9,6 @@ import com.ednilsondava.isdb.modelos.repositorios.Cursos;
 import com.ednilsondava.isdb.modelos.repositorios.Modulos;
 import com.ednilsondava.isdb.modelos.repositorios.Usuarios;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -38,8 +37,7 @@ public class InicialBean {
         return cursosRepositorio.todos();
     }
 
-    @PostConstruct
-    public void ConfigurarAdministrador() {
+    public void configurarAdministrador() {
         Usuario managed = usuariosRepositorio.encontrarByNomeUsuario("@tics");
         if(managed == null) {
             String tipo = "ADMINISTRATOR";
